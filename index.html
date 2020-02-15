@@ -175,7 +175,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/14/Notes_DL_Cousera_Ng/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/15/Notes_DL_Cousera_Ng/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -189,7 +189,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2020/02/14/Notes_DL_Cousera_Ng/" class="post-title-link" itemprop="url">Notes_DL_Cousera_Ng</a>
+            <a href="/2020/02/15/Notes_DL_Cousera_Ng/" class="post-title-link" itemprop="url">Notes on Neural Network and Deep Learning by Andrew Ng on Coursera</a>
         </h1>
 
         <div class="post-meta">
@@ -198,16 +198,21 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2020-02-14 22:38:06" itemprop="dateCreated datePublished" datetime="2020-02-14T22:38:06+01:00">2020-02-14</time>
+              <time title="创建时间：2020-02-15 21:49:02 / 修改时间：21:50:26" itemprop="dateCreated datePublished" datetime="2020-02-15T21:49:02+01:00">2020-02-15</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-15 21:47:02" itemprop="dateModified" datetime="2020-02-15T21:47:02+01:00">2020-02-15</time>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
               </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">学习</span>
+                  </a>
+                </span>
+            </span>
 
           
 
@@ -220,32 +225,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Notes-on-Neural-Network-and-Deep-Learning-by-Andrew-Ng-on-Coursera"><a href="#Notes-on-Neural-Network-and-Deep-Learning-by-Andrew-Ng-on-Coursera" class="headerlink" title="Notes on Neural Network and Deep Learning by Andrew Ng on Coursera"></a>Notes on Neural Network and Deep Learning by Andrew Ng on Coursera</h1><h5 id="This-is-the-first-course-of-the-Deep-Learning-Specialization-on-Coursera"><a href="#This-is-the-first-course-of-the-Deep-Learning-Specialization-on-Coursera" class="headerlink" title="This is the first course of the Deep Learning Specialization on Coursera"></a>This is the first course of the Deep Learning Specialization on Coursera</h5><ul>
-<li><p>Definitions</p>
-<ul>
-<li>$m$ : number of examples in the dataset</li>
-<li>$n_x$ : input size (number of input features)</li>
-<li>$n^{[l]}$ : number of hidden units in $l^\text{th}$ layer</li>
-<li>$X$ : $(n_x, m)$ input matrix</li>
-<li>$\hat{y}$ : $(1, m)$ predicted label vector</li>
-<li>$W^{[l]}$ : $(n^{[l]}, n^{[l-1]})$ weight matrix of the $l^\text{th}$ hidden layer</li>
-<li>$b^{[l]}$ :  $(n^{[l]})$ bias vector of the $l^\text{th}$ hidden layer</li>
-<li>$A^{[l]}$ : activation matrix of the $l^\text{th}$ hidden layer</li>
-<li>$Z^{[l]}$ : linear product of the $l^\text{th}$ hidden layer</li>
-<li>$g^{[l]}$ : activation function of the $l^\text{th}$ hidden layer (e.g., <code>relu</code>, <code>sigmoid</code>)</li>
-<li>$\alpha$ : learning rate</li>
-<li>$\cdot$ : matrix multiplication</li>
-<li>$*$ : element-wise multiplication</li>
-</ul>
-</li>
-<li><p>Forward Propagation<br>For the $l^\text{th}$ hidden layer,<br>$$<br>\begin{aligned}<br>Z^{[l]} &amp; = W^{[l]} \cdot A^{[l-1]} + b^{[l]} \<br>A^{[l]} &amp; = g^{[l]}(Z^{[l]})<br>\end{aligned}<br>$$<br>cost function is<br>$$<br>J = \frac{1}{m} \sum\limits_{i=1}^m L(y, \hat{y})<br>$$<br>where $L$ is the loss function.</p>
-</li>
-<li><p>Backward Propagation<br>  For the last layer (layer $K$), $A^{[K]} = \hat{y}$,<br>$$<br>\begin{aligned}<br>\mathrm{d} A^{[K]} = \frac{\mathrm{d} J}{\mathrm{d} \hat{y}}<br>\end{aligned}<br>$$<br>  For the $l^\text{th}$ hidden layer,<br>  $$<br>  \begin{aligned}<br>  \mathrm{d} Z^{[l]} &amp; = \mathrm{d} A^{[l]} * g^{[l]’’}(Z^{[l]}),\<br>  \mathrm{d} W^{[l]} &amp; = \frac{1}{m} \mathrm{d} Z^{[l]} \cdot (A^{[l]})^T, \<br>  \mathrm{d} b^{[l]} &amp; = \frac{1}{m} \sum\limits_{i=1}^m \mathrm{d} Z^{[l]}, \<br>  \mathrm{d} A^{[l-1]} &amp; = (W^{[l]})^T \cdot \mathrm{d} Z^{[l]}<br>  \end{aligned}<br>  $$</p>
-</li>
-<li><p>Gradient Descent<br>  $$<br>  \begin{aligned}<br>  W^{[l]} &amp; = W^{[l]} - \alpha \cdot \mathrm{d} W^{[l]} \<br>  b^{[l]} &amp; = b^{[l]} - \alpha \cdot \mathrm{d} b^{[l]}<br>  \end{aligned}<br>  $$</p>
-</li>
-</ul>
-
+          <h5 id="This-is-the-first-course-of-the-Deep-Learning-Specialization-on-Coursera"><a href="#This-is-the-first-course-of-the-Deep-Learning-Specialization-on-Coursera" class="headerlink" title="This is the first course of the Deep Learning Specialization on Coursera"></a>This is the first course of the Deep Learning Specialization on Coursera</h5>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/02/15/Notes_DL_Cousera_Ng/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -415,13 +403,13 @@
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
