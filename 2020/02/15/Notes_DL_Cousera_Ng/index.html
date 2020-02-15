@@ -54,7 +54,7 @@
 <meta property="og:description" content="This is the first course of the Deep Learning Specialization on Coursera">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-02-15T20:49:02.000Z">
-<meta property="article:modified_time" content="2020-02-15T20:58:00.458Z">
+<meta property="article:modified_time" content="2020-02-15T21:13:10.483Z">
 <meta property="article:author" content="zl">
 <meta property="article:tag" content="Deep Learning">
 <meta property="article:tag" content="Artificial Intelligence">
@@ -206,7 +206,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-02-15 21:49:02 / 修改时间：21:58:00" itemprop="dateCreated datePublished" datetime="2020-02-15T21:49:02+01:00">2020-02-15</time>
+              <time title="创建时间：2020-02-15 21:49:02 / 修改时间：22:13:10" itemprop="dateCreated datePublished" datetime="2020-02-15T21:49:02+01:00">2020-02-15</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -240,19 +240,21 @@
       
         <p><strong>This is the first course of the Deep Learning Specialization on Coursera</strong> <a id="more"></a></p>
 <h3 id="definitions">Definitions</h3>
-<pre><code>* $m$ : number of examples in the dataset
-* $n_x$ : input size (number of input features)
-* $n^{[l]}$ : number of hidden units in $l^\text{th}$ layer
-* $X$ : $(n_x, m)$ input matrix
-* $\hat{y}$ : $(1, m)$ predicted label vector
-* $W^{[l]}$ : $(n^{[l]}, n^{[l-1]})$ weight matrix of the $l^\text{th}$ hidden layer
-* $b^{[l]}$ :  $(n^{[l]})$ bias vector of the $l^\text{th}$ hidden layer
-* $A^{[l]}$ : activation matrix of the $l^\text{th}$ hidden layer
-* $Z^{[l]}$ : linear product of the $l^\text{th}$ hidden layer
-* $g^{[l]}$ : activation function of the $l^\text{th}$ hidden layer (e.g., `relu`, `sigmoid`)
-* $\alpha$ : learning rate
-* $\cdot$ : matrix multiplication
-* $*$ : element-wise multiplication</code></pre>
+<ul>
+<li><span class="math inline">\(m\)</span> : number of examples in the dataset</li>
+<li><span class="math inline">\(n_x\)</span> : input size (number of input features)</li>
+<li><span class="math inline">\(n^{[l]}\)</span> : number of hidden units in <span class="math inline">\(l^\text{th}\)</span> layer</li>
+<li><span class="math inline">\(X\)</span> : <span class="math inline">\((n_x, m)\)</span> input matrix</li>
+<li><span class="math inline">\(\hat{y}\)</span> : <span class="math inline">\((1, m)\)</span> predicted label vector</li>
+<li><span class="math inline">\(W^{[l]}\)</span> : <span class="math inline">\((n^{[l]}, n^{[l-1]})\)</span> weight matrix of the <span class="math inline">\(l^\text{th}\)</span> hidden layer</li>
+<li><span class="math inline">\(b^{[l]}\)</span> : <span class="math inline">\((n^{[l]})\)</span> bias vector of the <span class="math inline">\(l^\text{th}\)</span> hidden layer</li>
+<li><span class="math inline">\(A^{[l]}\)</span> : activation matrix of the <span class="math inline">\(l^\text{th}\)</span> hidden layer</li>
+<li><span class="math inline">\(Z^{[l]}\)</span> : linear product of the <span class="math inline">\(l^\text{th}\)</span> hidden layer</li>
+<li><span class="math inline">\(g^{[l]}\)</span> : activation function of the <span class="math inline">\(l^\text{th}\)</span> hidden layer (e.g., <code>relu</code>, <code>sigmoid</code>)</li>
+<li><span class="math inline">\(\alpha\)</span> : learning rate</li>
+<li><span class="math inline">\(\cdot\)</span> : matrix multiplication</li>
+<li><span class="math inline">\(*\)</span> : element-wise multiplication</li>
+</ul>
 <h3 id="forward-propagation">Forward Propagation</h3>
 <p>For the <span class="math inline">\(l^\text{th}\)</span> hidden layer, <span class="math display">\[
 \begin{aligned}
@@ -263,27 +265,25 @@
 J = \frac{1}{m} \sum\limits_{i=1}^m L(y, \hat{y})
 \]</span> where <span class="math inline">\(L\)</span> is the loss function.</p>
 <h3 id="backward-propagation">Backward Propagation</h3>
-<pre><code>For the last layer (layer $K$), $A^{[K]} = \hat{y}$,</code></pre>
-<p><span class="math display">\[
+<p>For the last layer (layer <span class="math inline">\(K\)</span>), <span class="math inline">\(A^{[K]} = \hat{y}\)</span>, <span class="math display">\[
   \begin{aligned}
   \mathrm{d} A^{[K]} = \frac{\mathrm{d} J}{\mathrm{d} \hat{y}}
   \end{aligned}
-  \]</span> For the <span class="math inline">\(l^\text{th}\)</span> hidden layer, <span class="math display">\[
-    \begin{aligned}
-    \mathrm{d} Z^{[l]} &amp; = \mathrm{d} A^{[l]} * g^{[l]&#39;&#39;}(Z^{[l]}),\\
-    \mathrm{d} W^{[l]} &amp; = \frac{1}{m} \mathrm{d} Z^{[l]} \cdot (A^{[l]})^T, \\
-    \mathrm{d} b^{[l]} &amp; = \frac{1}{m} \sum\limits_{i=1}^m \mathrm{d} Z^{[l]}, \\
-    \mathrm{d} A^{[l-1]} &amp; = (W^{[l]})^T \cdot \mathrm{d} Z^{[l]}
-    \end{aligned}
-    \]</span></p>
-<ul>
-<li>Gradient Descent <span class="math display">\[
-  \begin{aligned}
-  W^{[l]} &amp; = W^{[l]} - \alpha \cdot \mathrm{d} W^{[l]} \\
-  b^{[l]} &amp; = b^{[l]} - \alpha \cdot \mathrm{d} b^{[l]}
-  \end{aligned}
-  \]</span></li>
-</ul>
+\]</span> For the <span class="math inline">\(l^\text{th}\)</span> hidden layer, <span class="math display">\[
+\begin{aligned}
+\mathrm{d} Z^{[l]} &amp; = \mathrm{d} A^{[l]} * g^{[l]&#39;&#39;}(Z^{[l]}),\\
+\mathrm{d} W^{[l]} &amp; = \frac{1}{m} \mathrm{d} Z^{[l]} \cdot (A^{[l]})^T, \\
+\mathrm{d} b^{[l]} &amp; = \frac{1}{m} \sum\limits_{i=1}^m \mathrm{d} Z^{[l]}, \\
+\mathrm{d} A^{[l-1]} &amp; = (W^{[l]})^T \cdot \mathrm{d} Z^{[l]}
+\end{aligned}
+\]</span></p>
+<h3 id="gradient-descent">Gradient Descent</h3>
+<p><span class="math display">\[
+\begin{aligned}
+W^{[l]} &amp; = W^{[l]} - \alpha \cdot \mathrm{d} W^{[l]} \\
+b^{[l]} &amp; = b^{[l]} - \alpha \cdot \mathrm{d} b^{[l]}
+\end{aligned}
+\]</span></p>
 
     </div>
 
@@ -367,7 +367,7 @@ J = \frac{1}{m} \sum\limits_{i=1}^m L(y, \hat{y})
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#definitions"><span class="nav-number">1.</span> <span class="nav-text">Definitions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#forward-propagation"><span class="nav-number">2.</span> <span class="nav-text">Forward Propagation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#backward-propagation"><span class="nav-number">3.</span> <span class="nav-text">Backward Propagation</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#definitions"><span class="nav-number">1.</span> <span class="nav-text">Definitions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#forward-propagation"><span class="nav-number">2.</span> <span class="nav-text">Forward Propagation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#backward-propagation"><span class="nav-number">3.</span> <span class="nav-text">Backward Propagation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gradient-descent"><span class="nav-number">4.</span> <span class="nav-text">Gradient Descent</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
