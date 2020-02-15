@@ -238,8 +238,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><strong>This is the first course of the Deep Learning Specialization on Coursera</strong><br><a id="more"></a></p>
-<h3 id="Definitions"><a href="#Definitions" class="headerlink" title="Definitions"></a>Definitions</h3><pre><code>* $m$ : number of examples in the dataset
+        <p><strong>This is the first course of the Deep Learning Specialization on Coursera</strong> <a id="more"></a></p>
+<h3 id="definitions">Definitions</h3>
+<pre><code>* $m$ : number of examples in the dataset
 * $n_x$ : input size (number of input features)
 * $n^{[l]}$ : number of hidden units in $l^\text{th}$ layer
 * $X$ : $(n_x, m)$ input matrix
@@ -251,34 +252,37 @@
 * $g^{[l]}$ : activation function of the $l^\text{th}$ hidden layer (e.g., `relu`, `sigmoid`)
 * $\alpha$ : learning rate
 * $\cdot$ : matrix multiplication
-* $*$ : element-wise multiplication
-</code></pre><h3 id="Forward-Propagation"><a href="#Forward-Propagation" class="headerlink" title="Forward Propagation"></a>Forward Propagation</h3><p>For the $l^\text{th}$ hidden layer,</p>
-<script type="math/tex; mode=display">
+* $*$ : element-wise multiplication</code></pre>
+<h3 id="forward-propagation">Forward Propagation</h3>
+<p>For the <span class="math inline">\(l^\text{th}\)</span> hidden layer, <span class="math display">\[
 \begin{aligned}
-  Z^{[l]} & = W^{[l]} \cdot A^{[l-1]} + b^{[l]} \\
-  A^{[l]} & = g^{[l]}(Z^{[l]})
-\end{aligned}</script><p>cost function is</p>
-<script type="math/tex; mode=display">
-J = \frac{1}{m} \sum\limits_{i=1}^m L(y, \hat{y})</script><p>where $L$ is the loss function.</p>
-<h3 id="Backward-Propagation"><a href="#Backward-Propagation" class="headerlink" title="Backward Propagation"></a>Backward Propagation</h3><pre><code>For the last layer (layer $K$), $A^{[K]} = \hat{y}$,
-</code></pre><script type="math/tex; mode=display">
+  Z^{[l]} &amp; = W^{[l]} \cdot A^{[l-1]} + b^{[l]} \\
+  A^{[l]} &amp; = g^{[l]}(Z^{[l]})
+\end{aligned}
+\]</span> cost function is <span class="math display">\[
+J = \frac{1}{m} \sum\limits_{i=1}^m L(y, \hat{y})
+\]</span> where <span class="math inline">\(L\)</span> is the loss function.</p>
+<h3 id="backward-propagation">Backward Propagation</h3>
+<pre><code>For the last layer (layer $K$), $A^{[K]} = \hat{y}$,</code></pre>
+<p><span class="math display">\[
   \begin{aligned}
   \mathrm{d} A^{[K]} = \frac{\mathrm{d} J}{\mathrm{d} \hat{y}}
-  \end{aligned}</script><pre><code>For the $l^\text{th}$ hidden layer,
-$$
-\begin{aligned}
-\mathrm{d} Z^{[l]} &amp; = \mathrm{d} A^{[l]} * g^{[l]&#39;&#39;}(Z^{[l]}),\\
-\mathrm{d} W^{[l]} &amp; = \frac{1}{m} \mathrm{d} Z^{[l]} \cdot (A^{[l]})^T, \\
-\mathrm{d} b^{[l]} &amp; = \frac{1}{m} \sum\limits_{i=1}^m \mathrm{d} Z^{[l]}, \\
-\mathrm{d} A^{[l-1]} &amp; = (W^{[l]})^T \cdot \mathrm{d} Z^{[l]}
-\end{aligned}
-$$
-</code></pre><ul>
-<li>Gradient Descent<script type="math/tex; mode=display">
+  \end{aligned}
+  \]</span> For the <span class="math inline">\(l^\text{th}\)</span> hidden layer, <span class="math display">\[
+    \begin{aligned}
+    \mathrm{d} Z^{[l]} &amp; = \mathrm{d} A^{[l]} * g^{[l]&#39;&#39;}(Z^{[l]}),\\
+    \mathrm{d} W^{[l]} &amp; = \frac{1}{m} \mathrm{d} Z^{[l]} \cdot (A^{[l]})^T, \\
+    \mathrm{d} b^{[l]} &amp; = \frac{1}{m} \sum\limits_{i=1}^m \mathrm{d} Z^{[l]}, \\
+    \mathrm{d} A^{[l-1]} &amp; = (W^{[l]})^T \cdot \mathrm{d} Z^{[l]}
+    \end{aligned}
+    \]</span></p>
+<ul>
+<li>Gradient Descent <span class="math display">\[
   \begin{aligned}
-  W^{[l]} & = W^{[l]} - \alpha \cdot \mathrm{d} W^{[l]} \\
-  b^{[l]} & = b^{[l]} - \alpha \cdot \mathrm{d} b^{[l]}
-  \end{aligned}</script></li>
+  W^{[l]} &amp; = W^{[l]} - \alpha \cdot \mathrm{d} W^{[l]} \\
+  b^{[l]} &amp; = b^{[l]} - \alpha \cdot \mathrm{d} b^{[l]}
+  \end{aligned}
+  \]</span></li>
 </ul>
 
     </div>
@@ -363,7 +367,7 @@ $$
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Definitions"><span class="nav-number">1.</span> <span class="nav-text">Definitions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Forward-Propagation"><span class="nav-number">2.</span> <span class="nav-text">Forward Propagation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Backward-Propagation"><span class="nav-number">3.</span> <span class="nav-text">Backward Propagation</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#definitions"><span class="nav-number">1.</span> <span class="nav-text">Definitions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#forward-propagation"><span class="nav-number">2.</span> <span class="nav-text">Forward Propagation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#backward-propagation"><span class="nav-number">3.</span> <span class="nav-text">Backward Propagation</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
