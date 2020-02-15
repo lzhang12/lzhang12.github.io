@@ -200,7 +200,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-02-15 21:49:02 / 修改时间：21:50:26" itemprop="dateCreated datePublished" datetime="2020-02-15T21:49:02+01:00">2020-02-15</time>
+              <time title="创建时间：2020-02-15 21:49:02 / 修改时间：21:56:58" itemprop="dateCreated datePublished" datetime="2020-02-15T21:49:02+01:00">2020-02-15</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -225,7 +225,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h5 id="This-is-the-first-course-of-the-Deep-Learning-Specialization-on-Coursera"><a href="#This-is-the-first-course-of-the-Deep-Learning-Specialization-on-Coursera" class="headerlink" title="This is the first course of the Deep Learning Specialization on Coursera"></a>This is the first course of the Deep Learning Specialization on Coursera</h5>
+          <p><strong>This is the first course of the Deep Learning Specialization on Coursera</strong></p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/02/15/Notes_DL_Cousera_Ng/#more" rel="contents">
@@ -516,6 +516,54 @@
   
 
   
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
 
   
 
