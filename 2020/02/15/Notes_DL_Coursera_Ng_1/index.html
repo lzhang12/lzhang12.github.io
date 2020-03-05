@@ -54,7 +54,7 @@
 <meta property="og:description" content="This is the first course of the Deep Learning Specialization on Coursera">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-16T02:49:02.000Z">
-<meta property="article:modified_time" content="2020-03-05T18:58:30.547Z">
+<meta property="article:modified_time" content="2020-03-05T19:03:00.186Z">
 <meta property="article:author" content="zl">
 <meta property="article:tag" content="Deep Learning">
 <meta property="article:tag" content="Artificial Intelligence">
@@ -212,7 +212,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-05 13:58:30" itemprop="dateModified" datetime="2020-03-05T13:58:30-05:00">2020-03-05</time>
+                <time title="Modified: 2020-03-05 14:03:00" itemprop="dateModified" datetime="2020-03-05T14:03:00-05:00">2020-03-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -273,11 +273,11 @@
 J = \frac{1}{m} \sum\limits_{i=1}^m L_i(y_i, \hat{y}_i)
 \]</span> where <span class="math inline">\(L_i\)</span> is the <span class="math inline">\(i\)</span>th loss function for one instance.</p>
 <h3 id="backward-propagation">Backward Propagation</h3>
-<p>For the last layer (layer <span class="math inline">\(K\)</span>), <span class="math inline">\(A^{[K]} = \hat{y}\)</span>. In the following, the notation <span class="math inline">\(\mathrm{d} X\)</span> represents the derivative of the cost function <span class="math inline">\(J\)</span> relative to <span class="math inline">\(X\)</span>, e.g., [^1 ] <span class="math display">\[
+<p>For the last layer (layer <span class="math inline">\(K\)</span>), <span class="math inline">\(A^{[K]} = \hat{y}\)</span>. In the following, the notation <span class="math inline">\(\mathrm{d} X\)</span> represents the derivative of the cost function <span class="math inline">\(J\)</span> relative to <span class="math inline">\(X\)</span>, e.g., <a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> <span class="math display">\[
 \begin{aligned}
   \mathrm{d} A^{[K]} = \frac{\mathrm{d} J}{\mathrm{d} \hat{y}}.
   \end{aligned}
-\]</span> For the <span class="math inline">\(l^\text{th}\)</span> hidden layer, <a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> <span class="math display">\[
+\]</span> For the <span class="math inline">\(l^\text{th}\)</span> hidden layer, <a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> <span class="math display">\[
 \begin{aligned}
 \mathrm{d} Z^{[l]} &amp; = \mathrm{d} A^{[l]} \odot g^{[l]&#39;}(Z^{[l]}), \quad \text{(chain rule,} \frac{\mathrm{d}J}{\mathrm{d}Z^{[l]}} = \frac{\mathrm{d}J}{\mathrm{d}A^{[l]}} \times\frac{\mathrm{d}g^{[l]}}{\mathrm{d}Z^{[l]}})\\
 \mathrm{d} W^{[l]} &amp; = \mathrm{d} Z^{[l]} \cdot (A^{[l-1]})^T, \quad (\text{chain rule}, \frac{\mathrm{d} J}{\mathrm{d} w^{[l]}_{ij}} = \sum\limits_{k=1}^m \frac{\mathrm{d} J}{\mathrm{d}z_{i k}^{[l]}} \times \frac{\mathrm{d}z_{ik}^{[l]}}{\mathrm{d}w_{ij}^{[l]}}= \sum\limits_{k=1}^m \frac{\mathrm{d} J}{\mathrm{d}z_{i k}^{[l]}} \times a^{[l-1]}_{jk} = \mathrm{d} Z^{[l]} \cdot (A^{[l-1]})^T)\\
@@ -299,7 +299,8 @@ b^{[l]} &amp; = b^{[l]} - \alpha \cdot \mathrm{d} b^{[l]}
 <section class="footnotes">
 <hr />
 <ol>
-<li id="fn1"><p>Following the last note, because of the different definiton here, the <span class="math inline">\(1/m\)</span> factor in equations calculating <span class="math inline">\(dW\)</span> and <span class="math inline">\(db\)</span> in the course won't show up here.<a href="#fnref1" class="footnote-back">↩</a></p></li>
+<li id="fn1"><p>This definition is different from that in the course. There Prof. Ng actually defines <span class="math inline">\(\mathrm{d} A^{[l]} = \frac{\mathrm{d} L}{\mathrm{d} A^{[l]}}\)</span> and <span class="math inline">\(\mathrm{d} W^{[l]} = \frac{\mathrm{d} J}{\mathrm{d} W^{[l]}}\)</span>, this causes a bit confusion.<a href="#fnref1" class="footnote-back">↩</a></p></li>
+<li id="fn2"><p>Following the last note, because of the different definiton here, the <span class="math inline">\(1/m\)</span> factor in equations calculating <span class="math inline">\(dW\)</span> and <span class="math inline">\(db\)</span> in the course won't show up here.<a href="#fnref2" class="footnote-back">↩</a></p></li>
 </ol>
 </section>
 
