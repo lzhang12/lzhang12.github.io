@@ -53,8 +53,8 @@
 <meta property="og:site_name" content="集虚斋">
 <meta property="og:description" content="This is the first course of the Deep Learning Specialization on Coursera">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-02-15T20:49:02.000Z">
-<meta property="article:modified_time" content="2020-02-28T14:35:29.624Z">
+<meta property="article:published_time" content="2020-02-16T02:49:02.000Z">
+<meta property="article:modified_time" content="2020-03-05T18:58:30.547Z">
 <meta property="article:author" content="zl">
 <meta property="article:tag" content="Deep Learning">
 <meta property="article:tag" content="Artificial Intelligence">
@@ -205,14 +205,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2020-02-15 21:49:02" itemprop="dateCreated datePublished" datetime="2020-02-15T21:49:02+01:00">2020-02-15</time>
+              <time title="Created: 2020-02-15 21:49:02" itemprop="dateCreated datePublished" datetime="2020-02-15T21:49:02-05:00">2020-02-15</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-02-28 15:35:29" itemprop="dateModified" datetime="2020-02-28T15:35:29+01:00">2020-02-28</time>
+                <time title="Modified: 2020-03-05 13:58:30" itemprop="dateModified" datetime="2020-03-05T13:58:30-05:00">2020-03-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -253,33 +253,35 @@
 <li><span class="math inline">\(X\)</span> : <span class="math inline">\((n_x, m)\)</span> input matrix</li>
 <li><span class="math inline">\(\hat{y}\)</span> : <span class="math inline">\((1, m)\)</span> predicted label vector</li>
 <li><span class="math inline">\(W^{[l]}\)</span> : <span class="math inline">\((n^{[l]}, n^{[l-1]})\)</span> weight matrix of the <span class="math inline">\(l^\text{th}\)</span> hidden layer</li>
+<li><span class="math inline">\(w^{[l]}_{jk}\)</span> : weight from the <span class="math inline">\(k^\text{th}\)</span> neuron in the <span class="math inline">\([l-1]^\text{th}\)</span> layer to the <span class="math inline">\(j^\text{th}\)</span> neuron in the <span class="math inline">\(l^\text{th}\)</span> neuron</li>
 <li><span class="math inline">\(b^{[l]}\)</span> : <span class="math inline">\((n^{[l]})\)</span> bias vector of the <span class="math inline">\(l^\text{th}\)</span> hidden layer</li>
-<li><span class="math inline">\(A^{[l]}\)</span> : activation matrix of the <span class="math inline">\(l^\text{th}\)</span> hidden layer</li>
-<li><span class="math inline">\(Z^{[l]}\)</span> : linear product of the <span class="math inline">\(l^\text{th}\)</span> hidden layer</li>
+<li><span class="math inline">\(A^{[l]}\)</span> : <span class="math inline">\((n^{[l]}, m)\)</span> activation matrix of the <span class="math inline">\(l^\text{th}\)</span> hidden layer</li>
+<li><span class="math inline">\(Z^{[l]}\)</span> : <span class="math inline">\((n^{[l]}, m)\)</span> linear product of the <span class="math inline">\(l^\text{th}\)</span> hidden layer</li>
 <li><span class="math inline">\(g^{[l]}\)</span> : activation function of the <span class="math inline">\(l^\text{th}\)</span> hidden layer (e.g., <code>relu</code>, <code>sigmoid</code>)</li>
+<li><span class="math inline">\(J\)</span> : cost function</li>
 <li><span class="math inline">\(\alpha\)</span> : learning rate</li>
 <li><span class="math inline">\(\cdot\)</span> : matrix multiplication</li>
-<li><span class="math inline">\(*\)</span> : element-wise multiplication</li>
+<li><span class="math inline">\(odot\)</span> : element-wise multiplication, hadamard product</li>
 </ul>
 <h3 id="forward-propagation">Forward Propagation</h3>
 <p>For the <span class="math inline">\(l^\text{th}\)</span> hidden layer, <span class="math display">\[
 \begin{aligned}
-  Z^{[l]} &amp; = W^{[l]} \cdot A^{[l-1]} + b^{[l]} \\
-  A^{[l]} &amp; = g^{[l]}(Z^{[l]})
+  Z^{[l]} &amp; = W^{[l]} \cdot A^{[l-1]} + b^{[l]} \quad \text{(linear combination)} \\
+  A^{[l]} &amp; = g^{[l]}(Z^{[l]}) \quad \text{(activation)}
 \end{aligned}
 \]</span> cost function is <span class="math display">\[
-J = \frac{1}{m} \sum\limits_{i=1}^m L(y, \hat{y})
-\]</span> where <span class="math inline">\(L\)</span> is the loss function.</p>
+J = \frac{1}{m} \sum\limits_{i=1}^m L_i(y_i, \hat{y}_i)
+\]</span> where <span class="math inline">\(L_i\)</span> is the <span class="math inline">\(i\)</span>th loss function for one instance.</p>
 <h3 id="backward-propagation">Backward Propagation</h3>
-<p>For the last layer (layer <span class="math inline">\(K\)</span>), <span class="math inline">\(A^{[K]} = \hat{y}\)</span>, <span class="math display">\[
-  \begin{aligned}
-  \mathrm{d} A^{[K]} = \frac{\mathrm{d} J}{\mathrm{d} \hat{y}}
-  \end{aligned}
-\]</span> For the <span class="math inline">\(l^\text{th}\)</span> hidden layer, <span class="math display">\[
+<p>For the last layer (layer <span class="math inline">\(K\)</span>), <span class="math inline">\(A^{[K]} = \hat{y}\)</span>. In the following, the notation <span class="math inline">\(\mathrm{d} X\)</span> represents the derivative of the cost function <span class="math inline">\(J\)</span> relative to <span class="math inline">\(X\)</span>, e.g., [^1 ] <span class="math display">\[
 \begin{aligned}
-\mathrm{d} Z^{[l]} &amp; = \mathrm{d} A^{[l]} * g^{[l]&#39;&#39;}(Z^{[l]}),\\
-\mathrm{d} W^{[l]} &amp; = \frac{1}{m} \mathrm{d} Z^{[l]} \cdot (A^{[l]})^T, \\
-\mathrm{d} b^{[l]} &amp; = \frac{1}{m} \sum\limits_{i=1}^m \mathrm{d} Z^{[l]}, \\
+  \mathrm{d} A^{[K]} = \frac{\mathrm{d} J}{\mathrm{d} \hat{y}}.
+  \end{aligned}
+\]</span> For the <span class="math inline">\(l^\text{th}\)</span> hidden layer, <a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> <span class="math display">\[
+\begin{aligned}
+\mathrm{d} Z^{[l]} &amp; = \mathrm{d} A^{[l]} \odot g^{[l]&#39;}(Z^{[l]}), \quad \text{(chain rule,} \frac{\mathrm{d}J}{\mathrm{d}Z^{[l]}} = \frac{\mathrm{d}J}{\mathrm{d}A^{[l]}} \times\frac{\mathrm{d}g^{[l]}}{\mathrm{d}Z^{[l]}})\\
+\mathrm{d} W^{[l]} &amp; = \mathrm{d} Z^{[l]} \cdot (A^{[l-1]})^T, \quad (\text{chain rule}, \frac{\mathrm{d} J}{\mathrm{d} w^{[l]}_{ij}} = \sum\limits_{k=1}^m \frac{\mathrm{d} J}{\mathrm{d}z_{i k}^{[l]}} \times \frac{\mathrm{d}z_{ik}^{[l]}}{\mathrm{d}w_{ij}^{[l]}}= \sum\limits_{k=1}^m \frac{\mathrm{d} J}{\mathrm{d}z_{i k}^{[l]}} \times a^{[l-1]}_{jk} = \mathrm{d} Z^{[l]} \cdot (A^{[l-1]})^T)\\
+\mathrm{d} b^{[l]} &amp; = \sum\limits_{i=1}^m \mathrm{d} Z^{[l]}, \\
 \mathrm{d} A^{[l-1]} &amp; = (W^{[l]})^T \cdot \mathrm{d} Z^{[l]}
 \end{aligned}
 \]</span></p>
@@ -290,6 +292,16 @@ W^{[l]} &amp; = W^{[l]} - \alpha \cdot \mathrm{d} W^{[l]} \\
 b^{[l]} &amp; = b^{[l]} - \alpha \cdot \mathrm{d} b^{[l]}
 \end{aligned}
 \]</span></p>
+<h3 id="references">References</h3>
+<ul>
+<li>https://www.coursera.org/learn/neural-networks-deep-learning/home/welcome</li>
+</ul>
+<section class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Following the last note, because of the different definiton here, the <span class="math inline">\(1/m\)</span> factor in equations calculating <span class="math inline">\(dW\)</span> and <span class="math inline">\(db\)</span> in the course won't show up here.<a href="#fnref1" class="footnote-back">↩</a></p></li>
+</ol>
+</section>
 
     </div>
 
@@ -310,7 +322,7 @@ b^{[l]} &amp; = b^{[l]} - \alpha \cdot \mathrm{d} b^{[l]}
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/02/04/Goettingen/" rel="prev" title="朝圣哥廷根--瞻仰百年前的世界科学中心">
+    <a href="/2020/02/03/Goettingen/" rel="prev" title="朝圣哥廷根--瞻仰百年前的世界科学中心">
       <i class="fa fa-chevron-left"></i> 朝圣哥廷根--瞻仰百年前的世界科学中心
     </a></div>
       <div class="post-nav-item"></div>
@@ -373,7 +385,7 @@ b^{[l]} &amp; = b^{[l]} - \alpha \cdot \mathrm{d} b^{[l]}
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#definitions"><span class="nav-number">1.</span> <span class="nav-text">Definitions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#forward-propagation"><span class="nav-number">2.</span> <span class="nav-text">Forward Propagation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#backward-propagation"><span class="nav-number">3.</span> <span class="nav-text">Backward Propagation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gradient-descent"><span class="nav-number">4.</span> <span class="nav-text">Gradient Descent</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#definitions"><span class="nav-number">1.</span> <span class="nav-text">Definitions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#forward-propagation"><span class="nav-number">2.</span> <span class="nav-text">Forward Propagation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#backward-propagation"><span class="nav-number">3.</span> <span class="nav-text">Backward Propagation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gradient-descent"><span class="nav-number">4.</span> <span class="nav-text">Gradient Descent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#references"><span class="nav-number">5.</span> <span class="nav-text">References</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
