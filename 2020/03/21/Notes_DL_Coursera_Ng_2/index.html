@@ -59,11 +59,13 @@
 <meta property="og:image" content="http://yoursite.com/images/deep_learning/GD_momentum.png">
 <meta property="og:image" content="http://yoursite.com/images/deep_learning/normalization.png">
 <meta property="article:published_time" content="2020-03-22T01:49:02.000Z">
-<meta property="article:modified_time" content="2020-04-04T16:23:28.792Z">
+<meta property="article:modified_time" content="2020-04-04T20:33:12.016Z">
 <meta property="article:author" content="zl">
 <meta property="article:tag" content="Deep Learning">
 <meta property="article:tag" content="Artificial Intelligence">
 <meta property="article:tag" content="Coursera">
+<meta property="article:tag" content="Batch Normalization">
+<meta property="article:tag" content="Hyperparameter tuning">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://yoursite.com/images/deep_learning/ML_iteration.png">
 
@@ -218,7 +220,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-04 12:23:28" itemprop="dateModified" datetime="2020-04-04T12:23:28-04:00">2020-04-04</time>
+                <time title="Modified: 2020-04-04 16:33:12" itemprop="dateModified" datetime="2020-04-04T16:33:12-04:00">2020-04-04</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -361,7 +363,7 @@ z^{[l]}_{\text{norm}} = \frac{z^{[l]} - \mu}{\sigma + \epsilon}
 \mu = \frac{1}{m} \sum\limits_i z^{[l](i)}, \quad \sigma^2 = \frac{1}{m} \sum\limits_i (z^{[l](i)} - \mu)^2
 \]</span> and <span class="math inline">\(\epsilon\)</span> is a small parameter to avoid the divided-by-zero error.</p>
 <p>In practice, rather than a normal distribution, it is common to rescale the distribution with learnable parameters (<span class="math inline">\(\gamma, \beta\)</span> below), e.g., <span class="math display">\[
-\tilde{z}^{[l](i)} = \gamma^{(i)} z^{[l](i)}_\text{norm} + \beta^{(i)}.
+\tilde{z}^{[l]} = \gamma \; z^{[l]}_\text{norm} + \beta.
 \]</span> Take the sigmoid activation as an example, usually you don't want <span class="math inline">\(z^{[l]}\)</span> always locate in a small region around 0, where the sigmoid activation si similar to a linear function.</p>
 <p><strong>A bit more about BatchNorm</strong></p>
 <p>From a theoretical point of view, batch normalization actually has two benefits for the model. Firstly, it reduces the effect of "covariate shift" for the deeper layers by separating the interaction between the layers. Secondly, it has a slightly regularization effect by adding noice to each layer's values <span class="math inline">\(z^{[l]}\)</span> in the mini-batch because it normalizes each mini-batch differently.</p>
@@ -385,6 +387,8 @@ z^{[l]}_{\text{norm}} = \frac{z^{[l]} - \mu}{\sigma + \epsilon}
               <a href="/tags/Deep-Learning/" rel="tag"># Deep Learning</a>
               <a href="/tags/Artificial-Intelligence/" rel="tag"># Artificial Intelligence</a>
               <a href="/tags/Coursera/" rel="tag"># Coursera</a>
+              <a href="/tags/Batch-Normalization/" rel="tag"># Batch Normalization</a>
+              <a href="/tags/Hyperparameter-tuning/" rel="tag"># Hyperparameter tuning</a>
           </div>
 
         
@@ -481,7 +485,7 @@ z^{[l]}_{\text{norm}} = \frac{z^{[l]} - \mu}{\sigma + \epsilon}
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
