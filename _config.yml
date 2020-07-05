@@ -19,7 +19,10 @@ author:
 paginate:         5
 
 # Custom vars
+github:           [metadata]
+repository:       lzhang12/lzhang12.github.io.git
 
 plugins:
   - jekyll-paginate
   - jekyll-gist
+  - jekyll-github-metadata
