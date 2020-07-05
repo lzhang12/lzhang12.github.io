@@ -10,7 +10,7 @@ title:            集虚斋
 tagline:          'made by Jekyll (Hyde theme)'
 description:      'Reading, Learning, Thinking'
 url:              https://lzhang12.github.io
-baseurl:          /
+baseurl:          
 
 author:
   name:           'Li Zhang'
