@@ -1,0 +1,25 @@
+# Dependencies
+markdown:         kramdown
+highlighter:      rouge
+ 
+# Permalinks
+permalink:        pretty
+
+# Setup
+title:            集虚斋
+tagline:          'made by Jekyll (Hyde theme)'
+description:      'Reading, Learning, Thinking'
+url:              https://lzhang12.github.io/
+baseurl:          /
+
+author:
+  name:           'Li Zhang'
+  url:            http://www.li-zhang.net
+
+paginate:         5
+
+# Custom vars
+
+plugins:
+  - jekyll-paginate
+  - jekyll-gist
