@@ -21,11 +21,10 @@ tags:
 ### 《20世纪数学经纬》
 &emsp;《20世纪数学经纬》是一本讲19末期和20世纪以来近代数学史的书，从不同时期和数学学派的角度讲述，条理很清楚。当时让我震惊的是，小小的哥廷根竟然在数学发展史上占据了重要的位置。哥廷根数学的辉煌肇始于高斯与黎曼，在克莱因与希尔伯特的努力下于20世纪进入黄金时期，形成了哥廷根学派，一时成为了世界数学中心，而后尽管随着纳粹上台迅速衰落，但是哥廷根的继承人外尔与柯朗又将其精神在美国发扬光大（外尔加入了普林斯顿高等研究院，柯朗建立了如今的纽约大学柯朗研究所）。除了对于纯数学和应用数学的发展产生了深远的影响，哥廷根也在20世纪初那场激荡人心的物理学革命中留下了重要印记，爱因斯坦，普朗克，海森堡，狄拉克，费米，玻恩都曾在此驻足。关于爱因斯坦与哥廷根，一个常被提及的小故事便是希尔伯特曾经说过：“哥廷根马路上随便找一个孩子，都要比爱因斯坦更懂得四维几何，然而发现相对论的，是物理学家爱因斯坦，而不是什么数学家”。
 
+
 <p align="center">
-![Hilbert](/images/Goettingen/Hilbert.jpeg){:height="270" width="250" style="padding-left: 10px; padding-right: 10px"}
-![Courant](/images/Goettingen/Courant.jpeg){:height="270" width="250" style="padding-left: 10px; padding-right: 10px"}
-![Minkowski](/images/Goettingen/Minkowski.jpeg){:height="270" width="250" style="padding-left: 10px; padding-right: 10px"}
-数学家们的故居。希尔伯特（左），柯朗（中），闵可夫斯基（右）都是好邻居。
+<img src="/images/Goettingen/Hilbert.jpeg" alt="Hilbert" height="270" width="250" style="padding-left: 10px; padding-right: 10px"/>       <img src="/images/Goettingen/Courant.jpeg" alt="Courant" height="270" width="250" style="padding-left: 10px; padding-right: 10px"/>       <img src="/images/Goettingen/Minkowski.jpeg" alt="Minkowski" height="270" width="250" style="padding-left: 10px; padding-right: 10px"/>
+数学家们的故居。希尔伯特（左），柯朗（中），闵可夫斯基（右）都是邻居。
 </p>
 
 
