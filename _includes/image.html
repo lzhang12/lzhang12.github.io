@@ -1,0 +1,8 @@
+<figure class="image">
+    <img src="{{ include.url }}" alt="{{ include.description }}" style="{{ include.style }}">
+    <figcaption>{{ include.description }}
+        {% if include.cite!=null %}
+        <a href="{{ include.link }}">[{{ include.cite }}] </a>
+        {% endif %}
+    </figcaption>
+</figure>

@@ -1,0 +1,14 @@
+/* Customize Sidebar Color */
+.customize .sidebar {
+    background-color: #ac4142;
+  }
+.customize .content a,
+.customize .related-posts li a:hover {
+color: #ac4142;
+}
+
+.image {
+    text-align: center;
+    font-size: small;
+    font-weight: bold;
+}
