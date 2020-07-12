@@ -1,0 +1,5 @@
+# site
+_site
+
+# temporary files
+.jekyll*
