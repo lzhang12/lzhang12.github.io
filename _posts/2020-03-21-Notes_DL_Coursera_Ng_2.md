@@ -4,7 +4,6 @@ title: Notes on Improving Deep Neutral Networks
 date: 2020-03-21 21:49:02
 tags:
 - Deep Learning
-- Artificial Intelligence
 - Coursera
 - Batch Normalization
 - Hyperparameter tuning
@@ -30,7 +29,7 @@ In a typical ML project, you will be given a large amount of data to be used to 
 
 **Hyperparameters** However, there are some other parameters that affect the performance of the model and you need to decide before you run the model. These parameters are called *hyperparameters*. Important hyperparameters for the NN model includes the learning rate, the layer of the the NN, the number of neurons in each layer and the activation function of the neuron, et al. In order to get better hyperparameters, you need to evaluate the model with different hyperparameters on the dataset.
 
-If you evaluate the hyperparameters on the same dataset of training, you have the risk to overfit your data so that it will not give good predictions on the new data, i.e., the model could not generalize well. So it's better to first separate the dataset into a training set and a holdout/developement/validation set (dev set), and the training set is used to train the model parameters, while the dev set is used to evaluate the hyperparameters. 
+If you evaluate the hyperparameters on the same dataset of training, you have the risk to overfit your data so that it will not give good predictions on the new data, i.e., the model could not generalize well. So it's better to first separate the dataset into a training set and a holdout/developement/validation set (dev set), and the training set is used to train the model parameters, while the dev set is used to evaluate the hyperparameters.
 
 Furthermore, before you lauch your model into the production line, you need to test your model to get a sense about the generalization error of your final model.
 
@@ -103,7 +102,7 @@ where the superscript with curly bracket denote the index of mini-batch. Then a 
 For t in range(1, n_mb+1):
 	# Forward propagation using batch t (X^{t})
 	# Compute cost for batch t (Y^{t})
-	# Backward propagation 
+	# Backward propagation
 	# Update parameters
 ```
 
@@ -111,7 +110,7 @@ For t in range(1, n_mb+1):
 
 <img src="/images/deep_learning/descent.png" alt="descent" style="zoom:50%;" />
 
-As seen in the figure, the random feature of mini-batch makes the optimization process converge non-monotonically. In another word, the learning curve decreases in a non-monotonical way. This makes the training process difficult to converge to a specific point, but wander around the minimum so that difficult to reach the convergence criteria. Meanwhile, at the beginning of the training, we tend to use large training steps, while at the end of the traing as the learning approaches the minimum, we tend to use small steps. 
+As seen in the figure, the random feature of mini-batch makes the optimization process converge non-monotonically. In another word, the learning curve decreases in a non-monotonical way. This makes the training process difficult to converge to a specific point, but wander around the minimum so that difficult to reach the convergence criteria. Meanwhile, at the beginning of the training, we tend to use large training steps, while at the end of the traing as the learning approaches the minimum, we tend to use small steps.
 
 To do this, we can add learning rate decay, i.e., slowly reduce the learning rate during training. For example, the learning rate $\alpha$ can be updated by
 
@@ -181,7 +180,7 @@ $$
 
 ## Hyperparameter tuning
 
-In the NN model, there are quite a lot hyperparameters, for example, 
+In the NN model, there are quite a lot hyperparameters, for example,
 - the learning rate $\alpha$
 - the number of layers
 - the number of hidden units in each layer

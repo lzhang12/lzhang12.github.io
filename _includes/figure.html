@@ -1,0 +1,27 @@
+<figure class=figure>
+    {% assign images = include.src | split: ',' %}
+    {% for image in images %}
+    <img src="{{ image }}" alt="Image: {{ include.caption }}" style="{{ include.style }}" height="{{ include.height }}" width="{{ include.width }}">
+    {% endfor %}
+    {% if include.caption %}
+    <figcaption class=figcaption>
+    {{ include.caption }}
+    {% if include.href %}
+    (<a href="{{ include.href }}">source</a>)
+    {% endif %}
+    </figcaption>
+    {% endif %}
+</figure>
+
+{% comment %}
+<!--
+    <figure class="image">
+    <img src="{{ include.url }}" alt="{{ include.description }}" style="{{ include.style }}">
+    <figcaption>{{ include.description }}
+        {% if include.cite!=null %}
+        <a href="{{ include.link }}">[{{ include.cite }}] </a>
+        {% endif %}
+    </figcaption>
+    </figure>
+-->
+{% endcomment %}

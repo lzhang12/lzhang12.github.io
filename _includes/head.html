@@ -26,6 +26,11 @@
     {% endif %}
   </title>
 
+  <!-- Tags -->
+  {% if site.tags != "" %}
+    {% include collecttags.html %}
+  {% endif %}
+
   <!-- CSS -->
   <!--
   <link rel="stylesheet" href="{{ site.baseurl }}public/css/poole.css">

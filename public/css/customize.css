@@ -2,13 +2,59 @@
 .customize .sidebar {
     background-color: #ac4142;
   }
-.customize .content a,
-.customize .related-posts li a:hover {
-color: #ac4142;
+.customize .content a {
+  color: #276767;
 }
 
-.image {
-    text-align: center;
-    font-size: small;
-    font-weight: bold;
+/* Post */
+.customize .post-title,
+.customize .post-title a {
+  color: #ac4142;
+}
+
+.customize .post-tag {
+  display: inline-block;
+  margin-top: -.5rem;
+  margin-bottom: 0.5rem;
+  margin-left: 2rem;
+  color: #276767;
+  ;
+}
+
+/* Relate Posts */
+.customize .related-posts {
+  padding-left: 0rem;
+  list-style: none;
+}
+.customize .related-posts li a{
+  color: #5D2E06;
+}
+.customize .related-posts li a:hover {
+  color: #5D2E06;
+  text-decoration: underline;
+}
+
+.customize .related-posts li a:focus {
+  text-decoration: underline;
+}
+
+/* Images */
+.customize .figure {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.customize .figure img {
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 5px;
+  margin: 20px;
+}
+
+.customize .figure .figcaption {
+  display: block;
+  text-align: center;
+  font-size: small;
+  font-weight: bold;
 }

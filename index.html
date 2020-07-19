@@ -12,9 +12,15 @@ title: Home
       </a>
     </h1>
 
-    {% include tags_for_page.html %}
-    <span class="post-date">{{ post.date | date_to_string }} {{ tags_content }}</span>
-    
+    <!-- <span class="post-date">{{ post.date | date_to_string }} {{ tags_content }}</span> -->
+    <span class="post-date">
+      {{ post.date | date_to_string }}
+      <span class="post-tag">
+        {% assign tags=post.tags | join: ' | '%}
+        {{ tags }}
+      </span>
+    </span>
+
     {{ post.excerpt }}
     {% capture content_words %}
       {{ post.content | number_of_words }}
@@ -24,7 +30,6 @@ title: Home
     {% endcapture %}
     {% if excerpt_words != content_words %}
      <a href="{{ post.url }}">Read more...</a>
-    
     {% endif %}
   </div>
   {% endfor %}
