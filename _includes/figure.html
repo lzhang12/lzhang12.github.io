@@ -1,7 +1,7 @@
 <figure class="figure">
     {% assign images = include.src | split: ',' %}
     {% for image in images %}
-    <img src="{{ image }}" alt="Image: {{ include.caption }}" style="{{ include.style }}">
+    <img src="{{ image }}" alt="Image: {{ include.caption }}" style="{{ include.style }}" height="{{ include.height }}" width="{{ include.width }}">
     {% endfor %}
     {% if include.caption %}
     <figcaption class="figcaption">
