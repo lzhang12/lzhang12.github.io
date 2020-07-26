@@ -3,10 +3,7 @@ layout: post
 title: Notes on Improving Deep Neutral Networks
 date: 2020-03-21 21:49:02
 tags:
-- Deep Learning
-- Coursera
-- Batch Normalization
-- Hyperparameter tuning
+- Machine-Learning
 ---
 
 **This is the 2nd course of the [Deep Learning Specialization on Coursera by Andrew Ng ](https://www.coursera.org/specializations/deep-learning#courses)**

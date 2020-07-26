@@ -1,0 +1,9 @@
+---
+layout: default
+---
+
+<h1>Articles in <span class=tagpage-tagtitle>{{ page.tag }}</span></h1>
+
+{% for post in site.tags[page.tag] %} <span class="archivemono">{{ post.date | date_to_string }}</span> &raquo; 
+<a href="{{ post.url }}"> {{ post.title}} </a>  </br>
+{% endfor %}

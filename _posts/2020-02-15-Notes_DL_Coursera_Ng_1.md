@@ -3,9 +3,7 @@ layout: post
 title: Notes on Neural Network and Deep Learning
 date: 2020-02-15 21:49:02
 tags:
-- Deep Learning
-- Artificial Intelligence
-- Coursera
+- Machine-Learning
 ---
 
 **This is the 1st course of the [Deep Learning Specialization on Coursera by Andrew Ng ](https://www.coursera.org/specializations/deep-learning#courses)**
