@@ -1,8 +1,8 @@
 /* Customize Sidebar Color */
 .customize .sidebar {
     /* background-color: #ac4142; */
-    background-color: black;
-  }
+  background-color: #000000;
+}
 .customize .content a {
   color: #5681C5;
 }
@@ -10,7 +10,7 @@
 /* Post */
 .customize .post-title,
 .customize .post-title a {
-  color: rgb(53, 51, 51);
+  color: #000000;
 }
 
 .customize .post-tag {
